@@ -58,10 +58,10 @@ module.exports = {
             filename: '[name].css',
             ignoreOrder: false
         }),
-        new CopyWebpackPlugin({
-            patterns: [
-            { from: 'src/assets', to: 'assets/' }
-        ]}),
+        // new CopyWebpackPlugin({
+        //     patterns: [
+        //     { from: 'src/assets', to: 'assets/' }
+        // ]}),
         new CleanWebpackPlugin(),
     ]
 

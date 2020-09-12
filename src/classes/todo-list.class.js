@@ -47,4 +47,8 @@ export class TodoList {
         this.todos = this.todos.map( obj => Todo.fromJson( obj ) );
     }
 
+    checkCompleted() {
+        return this.todos.filter( todo => !todo.completado).length;
+    }
+
 }

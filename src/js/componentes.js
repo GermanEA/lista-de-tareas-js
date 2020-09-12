@@ -7,7 +7,23 @@ const txtInput      = document.querySelector('.new-todo');
 const btnBorrar     = document.querySelector('.clear-completed');
 const ulFiltros     = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll('.filtro');
+const todoCount     = document.querySelector('.todo-count');
 
+const mutationObserver = new MutationObserver( function(mutations) {
+    mutations.forEach( function(mutation) {
+        const taskCount = todoList.checkCompleted();
+        todoCount.innerHTML = `<strong>${taskCount}</strong> pendiente(s)`;
+    });
+});
+
+mutationObserver.observe(divTodoList, {
+    attributes: true,
+    characterData: true,
+    childList: true,
+    subtree: true,
+    attributeOldValue: true,
+    characterDataOldValue: true
+});
 
 export const crearTodoHtml = ( todo ) => {
 
